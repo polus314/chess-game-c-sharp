@@ -18,7 +18,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'   # or 7.0.x / 6.0.x depending on your project
+        dotnet-version: '8.0.x'
 
     - name: Restore dependencies
       run: dotnet restore src/ChessGame.sln
@@ -28,7 +28,9 @@ jobs:
 
     - name: Run tests with coverage
       run: dotnet test src/ChessGame.sln --no-build --configuration Release \
-            --collect:"XPlat Code Coverage"
+        /p:CollectCoverage=true \
+        /p:CoverletOutputFormat=cobertura \
+        /p:CoverletOutput=TestResults/coverage/
 
     - name: Generate coverage report
       run: reportgenerator \
