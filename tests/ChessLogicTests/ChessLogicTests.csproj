@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChessLogic\ChessLogic.csproj" />
+    <ProjectReference Include="..\..\src\ChessLogic\ChessLogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
